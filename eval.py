@@ -66,7 +66,7 @@ def eval(model, testing_data_loader, model_path, output_folder, norm_size=True, 
         
         output_img = transforms.ToPILImage()(output.squeeze(0))
         output_img.save(output_folder + name[0])
-        torch.mps.empty_cache()
+        torch.cuda.empty_cache()
     
     print('===> End evaluation')
     if LOL:
