@@ -41,7 +41,7 @@ class EdgeLoss(nn.Module):
     def __init__(self,loss_weight=1.0, reduction='mean'):
         super(EdgeLoss, self).__init__()
         k = torch.Tensor([[.05, .25, .4, .25, .05]])
-        self.kernel = torch.matmul(k.t(),k).unsqueeze(0).repeat(3,1,1,1).to(device)
+        self.kernel = torch.matmul(k.t(),k).unsqueeze(0).repeat(3,1,1,1).cuda()
         self.weight = loss_weight
         
     def conv_gauss(self, img):
