@@ -77,11 +77,11 @@ def train(epoch):
     return loss_print, pic_cnt
 
 def checkpoint(epoch):
-    if not os.path.exists("./weights"):          
-        os.mkdir("./weights") 
-    if not os.path.exists("./weights/train"):          
-        os.mkdir("./weights/train")  
-    model_out_path = "./weights/train/epoch_{}.pth".format(epoch)
+    if not os.path.exists("/content/drive/MyDrive/OKLabMac/weights"):          
+        os.mkdir("/content/drive/MyDrive/OKLabMac/weights") 
+    if not os.path.exists("/content/drive/MyDrive/OKLabMac/weights/train"):          
+        os.mkdir("/content/drive/MyDrive/OKLabMac/weights/train")  
+    model_out_path = "/content/drive/MyDrive/OKLabMac/weights/train/epoch_{}.pth".format(epoch)
     torch.save(model.state_dict(), model_out_path)
     print("Checkpoint saved to {}".format(model_out_path))
     return model_out_path
