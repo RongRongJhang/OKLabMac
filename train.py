@@ -136,10 +136,10 @@ def load_datasets():
 
 def build_model():
     print('===> Building model')
-    model = CIDNet().to(device)
+    model = CIDNet().cuda()
     if opt.start_epoch > 0:
         pth = f"/content/drive/MyDrive/OKLabMac/weights/train/epoch_{opt.start_epoch}.pth"
-        model.load_state_dict(torch.load(pth, map_location=device))
+        model.load_state_dict(torch.load(pth, map_location=lambda storage, loc: storage))
     return model
 
 def make_scheduler():
